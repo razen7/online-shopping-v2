@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "d7b24844-fbc4-456d-b9e9-e30ff5fac58c",
+		"name": "eBazaar - v2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22888493"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "signUp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":  \"raz\",\r\n    \"email\":  \"hopeful.raz@gmail.com\",\r\n    \"password\": \"123\",\r\n    \"confirmPassword\": \"123\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signIn",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"hopeful.raz@gmail.com\",\r\n    \"password\":\"123\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "addCategory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"electronics\",\r\n    \"active\": \"true\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/category/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"category",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCategory",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/category/delete/62fe17278407c33c43799323",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"category",
+								"delete",
+								"62fe17278407c33c43799323"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "viewCategories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/ad-category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"ad-category"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ad",
+			"item": [
+				{
+					"name": "addAd",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZmRmYmI2YTc2OTk5ZGM2NGEzODA0NSIsImVtYWlsIjoiaG9wZWZ1bC5yYXpAZ21haWwuY29tIiwiaWF0IjoxNjYxMTU4Mzk1fQ.Vnks0hVtthfsxoBt9yI_ok0oVM0XEhyL9eq8hPwSIoQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "iPhone",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "iPhone is cool",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "9999",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "62fe17278407c33c43799323",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Torrent-free PC/Desktop/iphone.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/ads/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"ads",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAd",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/ads/delete/62fe229d69e5bd353285e9cd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"ads",
+								"delete",
+								"62fe229d69e5bd353285e9cd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "viewAllAds",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZmRmYmI2YTc2OTk5ZGM2NGEzODA0NSIsImVtYWlsIjoiaG9wZWZ1bC5yYXpAZ21haWwuY29tIiwiaWF0IjoxNjYxMTU4Mzk1fQ.Vnks0hVtthfsxoBt9yI_ok0oVM0XEhyL9eq8hPwSIoQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/ads/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"ads",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "viewAd",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZmRmYmI2YTc2OTk5ZGM2NGEzODA0NSIsImVtYWlsIjoiaG9wZWZ1bC5yYXpAZ21haWwuY29tIiwiaWF0IjoxNjYxMTU4Mzk1fQ.Vnks0hVtthfsxoBt9yI_ok0oVM0XEhyL9eq8hPwSIoQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/ads/view/62fe229d69e5bd353285e9cd?=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"ads",
+								"view",
+								"62fe229d69e5bd353285e9cd"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buyerInterest",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZmRmYmI2YTc2OTk5ZGM2NGEzODA0NSIsImVtYWlsIjoiaG9wZWZ1bC5yYXpAZ21haWwuY29tIiwiaWF0IjoxNjYxMTU4Mzk1fQ.Vnks0hVtthfsxoBt9yI_ok0oVM0XEhyL9eq8hPwSIoQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/ads/buy/62ff376aaf54086e0e0abc0e/62fdfbb6a76999dc64a38045",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"ads",
+								"buy",
+								"62ff376aaf54086e0e0abc0e",
+								"62fdfbb6a76999dc64a38045"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "close",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZmRmYmI2YTc2OTk5ZGM2NGEzODA0NSIsImVtYWlsIjoiaG9wZWZ1bC5yYXpAZ21haWwuY29tIiwiaWF0IjoxNjYxMTU4Mzk1fQ.Vnks0hVtthfsxoBt9yI_ok0oVM0XEhyL9eq8hPwSIoQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/ads/close/62ff376aaf54086e0e0abc0e/62fdfbb6a76999dc64a38045",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"ads",
+								"close",
+								"62ff376aaf54086e0e0abc0e",
+								"62fdfbb6a76999dc64a38045"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
